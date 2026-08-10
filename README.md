@@ -1,5 +1,6 @@
 神秘的hyw项目，让你的手机变成U盘(可在BIOS/UEFI中使用)  
 参考了[ISODroid](https://github.com/rodrig20/ISOdroid)  
+博客链接[让你的手机变成一个U盘](https://blog.haohao3001.top/2026/08/10/android_usb_gadget_bootable_usb_drive/)  
 目前仅在REDMI K90 Pro Max下测试过
   
 使用方法，把storage.img放在/data/adb/phone2usbstorage下
