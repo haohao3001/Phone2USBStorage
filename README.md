@@ -4,7 +4,7 @@
 目前仅在REDMI K90 Pro Max下测试过
   
 使用方法，把storage.img放在/data/adb/phone2usbstorage下  
-生成并放置storage.img，在Linux下执行以下命令(自动创建img正WIP中🤓)
+生成并放置storage.img，在Linux下执行以下命令(已实现自动创建，但是需要在电脑上通过Windows的磁盘管理或Linux的cfdisk自行分区)
 ```bash
 dd if=/dev/zero of=storage.img bs=1M count=1024
 parted storage.img --script mklabel gpt 
