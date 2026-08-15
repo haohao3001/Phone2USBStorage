@@ -151,7 +151,7 @@ async function onCreate() {
     const mb = gb * 1024;
     createBtn.disabled = true;
     createBtn.textContent = '创建中…';
-    log(`[Phone2USBStorage] 开始创建 ${gb} GB 镜像（${mb} MB），请耐心等待…`, 'info');
+    log(`[Phone2USBStorage] 开始创建 ${gb} GB 镜像（${mb} MB，稀疏文件，秒级完成）…`, 'info');
     try {
         const { errno } = await run(`sh ${MODDIR}/webui.sh create ${mb}`);
         if (errno === 0) {
