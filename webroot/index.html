@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phone2USBStorage</title>
+<link rel="stylesheet" href="./style.css" type="text/css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Phone2USBStorage</h1>
+    <div class="subtitle">让你的手机变成 U 盘</div>
+</div>
+
+<!-- 创建镜像（storage.img 不存在时显示） -->
+<div class="card" id="create-section">
+    <div class="label">镜像大小</div>
+    <div class="row">
+        <input type="number" id="size-input" min="1" max="64" step="1" inputmode="numeric"
+               placeholder="1 - 64" autocomplete="off">
+        <span class="unit">GB</span>
+        <button id="create-btn" class="btn btn-primary">确认创建</button>
+    </div>
+    <div class="hint">
+        仅创建空白镜像（上限 64 GB），不包含分区表。<br>
+        创建完成后将手机接入电脑，使用分区工具（Windows 的 DiskGenius / 傲梅分区助手，或 Linux 的 parted 等）直接创建分区表即可。
+    </div>
+</div>
+
+<!-- 删除镜像（storage.img 存在时显示） -->
+<div class="card" id="delete-section" hidden>
+    <div class="label">当前镜像</div>
+    <div class="row">
+        <span class="size-label">镜像大小</span>
+        <span class="size-value"><span id="size-value-num">--</span><span class="gb-unit">GB</span></span>
+        <button id="delete-btn" class="btn btn-danger">删除镜像</button>
+    </div>
+    <div class="hint">删除 storage.img 后可通过上方输入框重新创建。</div>
+</div>
+
+<!-- 终端 -->
+<div class="card terminal-card">
+    <div class="terminal-title">终端 / 日志输出</div>
+    <pre id="terminal"></pre>
+</div>
+
+<!-- 删除确认弹窗 -->
+<div class="overlay" id="confirm-dialog" hidden>
+    <div class="dialog">
+        <h3>删除镜像</h3>
+        <p>确定删除 <code>/data/adb/phone2usbstorage/storage.img</code> 吗？此操作不可恢复！</p>
+        <div class="dialog-actions">
+            <button id="confirm-cancel" class="btn btn-ghost">取消</button>
+            <button id="confirm-ok" class="btn btn-danger">确认删除</button>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
